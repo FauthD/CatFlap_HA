@@ -1,0 +1,36 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "BoardLength1": "70",
+            "BoardLength2": "70",
+            "BoardMountHeight": "4",
+            "BoardOffsetL": "37",
+            "BoardTolerance": "0.75",
+            "BoardWidth1": "50",
+            "BoardWidth2": "30",
+            "BodyInnerDepth": "20",
+            "BodyInnerWidth": "80",
+            "BodyOuterLenght": "177",
+            "BodyThickness": "2",
+            "Emboss": "0.3",
+            "Fontsize": "7",
+            "GapTolerance": "0.15",
+            "PcbThickness": "1.6",
+            "PrintThis": "box",
+            "Radius": "8",
+            "ScrewDiameter": "5",
+            "ScrewOffset": "6",
+            "ScrewType": "Head_M",
+            "SupplyDiameter": "13",
+            "SupplyDiameterDrill": "8.6",
+            "Tolerance": "0.2",
+            "UnderPrint": "0.35"
+        },
+        "box": {
+        },
+        "cover": {
+            "PrintThis": "cover"
+            }
+    },
+    "fileFormatVersion": "1"
+}
