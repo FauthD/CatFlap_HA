@@ -9,6 +9,8 @@ Do not use yet. But feel free to read and comment.
 - Block the flap for outgoing by a Vet-Switch (in HA).
 - Cats can always come in.
 - A blinking LED tells the cats the flap is blocked.
+- AC Powersupply to save on batteries
+- Batteries can be used as a fallback in case of a power outage, but then the HA-Connection does not work.
 
 # Missing
 - No logging of the chip numbers.
