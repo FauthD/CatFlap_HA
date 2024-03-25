@@ -49,3 +49,15 @@ So far I analyzed the PCB to get the connections for the mod.
 
 ![Direction](assets/svg/Direction.png)
 
+# Schematics (to be changed)
+
+![SureflapMods](Schematics/SureflapMods.svg)
+
+![WlanAdapter](Schematics/WlanAdapter.svg)
+
+# 3d printed housing
+
+![Box](Housing/PNG/box.png)
+
+![Cable cover](Housing/PNG/cover.png)
+
