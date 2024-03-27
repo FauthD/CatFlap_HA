@@ -9,6 +9,9 @@
    version="1.1"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="Direction.svg"
+   inkscape:export-filename="/home/fauthd/Projects/Katzenklappe/Github/CatFlap_HA/assets/svg/Direction.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,7 +30,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="1788.5714"
+     inkscape:cx="1532.8571"
      inkscape:cy="360"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -74,7 +77,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="opacity:0.351998;fill:#ff0000;stroke:#ff3539;stroke-width:4.55208;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4.55208, 4.55208;paint-order:fill markers stroke"
+       style="opacity:0.351998;fill:#00ff2f;stroke:#ff3539;stroke-width:4.55208;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4.55208, 4.55208;paint-order:fill markers stroke;fill-opacity:1"
        id="rect2516"
        width="62.745327"
        height="59.718628"
@@ -83,14 +86,36 @@
        ry="0.23670965" />
     <text
        xml:space="preserve"
-       style="font-size:80px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0000;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:80px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#008213;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
        x="372.85156"
        y="648.27478"
        id="text29404"><tspan
          sodipodi:role="line"
          id="tspan29402"
-         style="fill:#ff0000;stroke-width:0.9375px"
+         style="fill:#008213;stroke-width:0.9375px;fill-opacity:1"
          x="372.85156"
          y="648.27478">High for incomming</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:60px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#ffff00;fill-opacity:1;stroke:#fdfa00;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="716.69446"
+       y="577.81787"
+       id="text4177-2"><tspan
+         sodipodi:role="line"
+         id="tspan4175-7"
+         style="font-size:60px;fill:#ffff00;fill-opacity:1;stroke:#fdfa00;stroke-width:0.9375px;stroke-opacity:1"
+         x="716.69446"
+         y="577.81787">NPN</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:60px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#00ffff;stroke:#1effee;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="563.18732"
+       y="549.29388"
+       id="text40113-3"><tspan
+         sodipodi:role="line"
+         id="tspan40111-6"
+         style="font-size:60px;fill:#00ffff;stroke:#1effee;stroke-width:0.9375px;stroke-opacity:1"
+         x="563.18732"
+         y="549.29388">Q8</tspan></text>
   </g>
 </svg>
