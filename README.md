@@ -1,23 +1,22 @@
 # CatFlap_HA
 How to modify a "Sureflap Dualscan" for connecting to Home Assistant
 
-# This is Work in progress
-Do not use yet. But feel free to read and comment.
-
 # Features
 - Block the flap for outgoing on certain times.
 - Block the flap for outgoing by a Vet-Switch (in HA).
 - Cats can always come in.
 - A blinking LED tells the cats the flap is blocked.
+- A buzzer also tells that the flap is blocked if they try.
 - AC Powersupply to save on batteries
 - Batteries can be used as a fallback in case of a power outage, but then the HA-Connection does not work.
 
 # Missing
 - No logging of the chip numbers.
 	That might be possible, but I did not implement it.
+
 # Why modifing the "Sureflap Dualscan"?
 Well, Petcare builds very fine cat flaps, but if you want to connect to a
- smart home solution, then you have to buy another flap (Sureflap Connect + a Hub).
+ smart home solution, then you have to buy a different flap (Sureflap Connect + a Hub).
  That alone would be not the issue, but it is a "cloud only solution" - something that 
  never ever comes into my house.
 
@@ -31,15 +30,13 @@ Therefore I will not describe the kind of tools you need. If you do not know by 
 The author assumes no responsibility or liability for any errors or omissions in the content of this site. The information contained in this site is provided on an "as is" basis with no guarantees of completeness, accuracy, usefulness or timeliness.
 
 # Pictures
-You can find a few pictures of the PCB in assets/pictures.
+You can find a few more pictures of the PCB in assets/pictures.
 
 # Status
-Currently working on on the yaml file for EspHome.
-Schematics are close but need an internal review.
-Waiting on a few electronic parts for further tests.
+Going to be used by my girls.
 
 # Finding the right connections
-So far I analyzed the PCB to get the connections for the mod.
+I analyzed the PCB to get the connections for the mod.
 
 ![HighVoltage](assets/svg/HighVoltage.png)
 
@@ -49,7 +46,7 @@ So far I analyzed the PCB to get the connections for the mod.
 
 ![Direction](assets/svg/Direction.png)
 
-# Schematics (to be changed)
+# Schematics
 
 ![SureflapMods](Schematics/SureflapMods.svg)
 
