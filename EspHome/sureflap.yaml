@@ -22,12 +22,12 @@ esp32:
   framework:
     type: esp-idf
 
-
 # Enable logging
 logger:
   level: DEBUG
   logs:
     switch: WARN
+    ledc: WARN
 
 # Enable Home Assistant API
 api:
@@ -78,8 +78,8 @@ sensor:
 
 number:
   - platform: template
-    name: "Begin Blocking"
-    id: begin_blocking
+    name: "Begin Blocking Time"
+    id: begin_blocking_time
     optimistic: true
     min_value: 16.0
     max_value: 23.5
@@ -88,8 +88,8 @@ number:
     restore_value: True
 
   - platform: template
-    name: "End Blocking"
-    id: end_blocking
+    name: "End Blocking Time"
+    id: end_blocking_time
     optimistic: true
     min_value: 0.5
     max_value: 8.0
@@ -105,14 +105,11 @@ binary_sensor:
       mode: INPUT_PULLDOWN
     filters:
       - delayed_on: 5ms
-      - delayed_off: 100ms
+      - delayed_off: 200ms
     id: flap_barrier
     on_press:
       then:
         - script.execute: decide_whether_to_open_the_flap
-    on_release:
-      then:
-        - switch.turn_off: flap_blocking
 
   - platform: gpio
     name: Incomming
@@ -123,6 +120,10 @@ binary_sensor:
       - delayed_on: 1ms
       - delayed_off: 50ms
     id: incomming
+    on_press:
+      then:
+        - script.execute: open_the_flap
+
 
   - platform: gpio
     name: Open
@@ -131,7 +132,7 @@ binary_sensor:
       mode: INPUT_PULLDOWN
     filters:
       - delayed_on: 10ms
-      - delayed_off: 10ms
+      - delayed_off: 400ms
     id: flap_open
 
   - platform: gpio
@@ -141,51 +142,82 @@ binary_sensor:
       mode: INPUT_PULLDOWN
     filters:
       - delayed_on: 10ms
-      - delayed_off: 10ms
+      - delayed_off: 400ms
     id: flap_close
+
+  - platform: gpio
+    name: Unused2
+    pin: 
+      number: GPIO2
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    id: flap_unused2
+
+  - platform: gpio
+    name: Unused3
+    pin: 
+      number: GPIO3
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    id: flap_unused3
+
+  - platform: gpio
+    name: Unused4
+    pin: 
+      number: GPIO4
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    id: flap_unused4
 
   - platform: homeassistant
     name: "Vet Switch"
     id: vet_switch
     entity_id: input_boolean.vet_switch
+    on_release:
+      then:
+        - script.execute: decide_whether_to_open_the_flap
 
 switch:
   - platform: gpio
     pin:
-      number: 8
+      number: GPIO8
       mode: output
     id: led
   - platform: gpio
     name: "Blocking"
     pin:
-      number: 10
+      number: GPIO10
       mode: output
     id: flap_blocking
   - platform: gpio
     name: "Flap Illumination"
     pin:
-      number: 0
+      number: GPIO0
       mode: output
     id: flap_illumination
   - platform: gpio
     name: "Box Illumination"
     pin:
-      number: 1
+      number: GPIO1
       mode: output
     id: box_illumination
 
 output:
   - platform: ledc
-    pin: 5
+    pin:
+      number: GPIO5
+      drive_strength: 40mA
     id: buzzer
 
 script:
   - id: sound
     mode: single
-    parameters:
-      duration_ms: int
-      frequency_hz: int
-      level_p: int
     then:
         ######################################################
         # Must be turned on before setting frequency & level
@@ -196,14 +228,14 @@ script:
         ######################################################
       - output.ledc.set_frequency:
           id: buzzer
-          frequency: !lambda return frequency_hz;
+          frequency: "400hz"
         ######################################################
         # level sets the %age time the PWM is on
         ######################################################
       - output.set_level:
           id: buzzer
-          level: !lambda return level_p;
-      - delay: !lambda return duration_ms;
+          level: "50%"
+      - delay: "500ms"
       - output.turn_off: buzzer
 
   - id: blink_illumination
@@ -217,7 +249,7 @@ script:
                 now = id(homeassistant_time).now().hour + id(homeassistant_time).now().minute / 60;
               else if (id(sntp_time).now().is_valid())
                 now = id(sntp_time).now().hour + id(sntp_time).now().minute / 60;
-              return ((now < id(begin_blocking).state) && (now >= id(end_blocking).state) && !id(vet_switch).state);
+              return ((now < id(begin_blocking_time).state) && (now >= id(end_blocking_time).state) && !id(vet_switch).state);
         then:
         - if:
             condition:
@@ -235,9 +267,6 @@ script:
       - switch.turn_on: flap_blocking
       - script.execute:
           id: sound
-          duration_ms: 400
-          frequency_hz: 400
-          level_p: 20
       - logger.log: "Blocking"
 
   - id: open_the_flap
@@ -252,14 +281,14 @@ script:
     - if:
         condition:
           or:
-            - binary_sensor.is_off: incomming
+            - binary_sensor.is_on: incomming
             - lambda: |-
                 auto now = 0.0;
                 if (id(homeassistant_time).now().is_valid())
                   now = id(homeassistant_time).now().hour + id(homeassistant_time).now().minute / 60;
                 else if (id(sntp_time).now().is_valid())
                   now = id(sntp_time).now().hour + id(sntp_time).now().minute / 60;
-                return ((now < id(begin_blocking).state) && (now >= id(end_blocking).state) && !id(vet_switch).state);
+                return ((now < id(begin_blocking_time).state) && (now >= id(end_blocking_time).state) && !id(vet_switch).state);
         then:
           - script.execute: open_the_flap
         else:
