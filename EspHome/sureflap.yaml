@@ -102,7 +102,7 @@ binary_sensor:
     name: "Sensor Barrier"
     pin: 
       number: GPIO7
-      mode: INPUT_PULLDOWN
+      mode: INPUT     # No _PULLDOWN because the series resistor (12k) ist to high.
     filters:
       - delayed_on: 5ms
       - delayed_off: 200ms
@@ -115,7 +115,7 @@ binary_sensor:
     name: Incomming
     pin: 
       number: GPIO6
-      mode: INPUT_PULLDOWN
+      mode: INPUT     # No _PULLDOWN because the series resistor (12k) ist to high.
     filters:
       - delayed_on: 1ms
       - delayed_off: 50ms
