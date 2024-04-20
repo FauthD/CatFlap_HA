@@ -33,7 +33,7 @@ The author assumes no responsibility or liability for any errors or omissions in
 You can find a few more pictures of the PCB in assets/pictures.
 
 # Status
-Going to be used by my girls.
+Finished, installed and used by my girls.
 
 # Finding the right connections
 I analyzed the PCB to get the connections for the mod.
@@ -58,3 +58,6 @@ I analyzed the PCB to get the connections for the mod.
 
 ![Cable cover](Housing/PNG/cover.png)
 
+# Final Installation
+
+![Final installation](assets/pictures/20240411_160805.jpg)
